@@ -70,3 +70,11 @@ PRs and feedback are welcome! Open an issue or submit a pull request to suggest 
 ## 📧 Contact
 **Developer:** Shweta Das  
 **GitHub:** [@ShwetaDcode](https://github.com/ShwetaDcode)
+
+---
+
+## License
+
+This project is licensed under the [CC BY-NC-ND 4.0 License](https://creativecommons.org/licenses/by-nc-nd/4.0/).  
+**No commercial use, redistribution, or modification allowed.**
+
