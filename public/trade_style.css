@@ -1,0 +1,46 @@
+/* Trade Page Styles */
+
+/* Trade Container */
+.trade-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.trade-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.trade-container p {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.trade-container input[type="text"],
+.trade-container input[type="password"],
+.trade-container input[type="submit"],
+.trade-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.trade-container input[type="submit"] {
+    background-color: #da7f00;
+    color: white;
+    cursor: pointer;
+}
+
+.trade-container input[type="submit"]:hover {
+    background-color: #865108;
+}

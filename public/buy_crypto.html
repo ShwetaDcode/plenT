@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Crypto</title>
+    <!-- Link to the Theme1 CSS file -->
+    <link rel="stylesheet" href="Theme1.css">
+    <!-- Link to additional style CSS file -->
+    <link rel="stylesheet" href="buy_crypto_style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="index.html">plenT</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="buy_crypto.html">Buy Crypto</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="markets.html">Markets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="trade.html">Trade</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="signup.html">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact_us.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about_us.html">About Us</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Buy Crypto content -->
+    <div class="buy-crypto-container">
+        <h1>Buy Crypto</h1>
+        <form action="purchase_process.php" method="POST">
+            <label for="cryptocurrency">Select Cryptocurrency:</label>
+            <select id="cryptocurrency" name="cryptocurrency">
+                <option value="BTC">Bitcoin</option>
+                <option value="ETH">Ethereum</option>
+                <!-- Add more cryptocurrency options as needed -->
+            </select><br><br>
+            
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="0" required><br><br>
+            
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method" name="payment-method">
+                <option value="credit-card">Credit Card</option>
+                <option value="bank-transfer">Bank Transfer</option>
+                <!-- Add more payment method options as needed -->
+            </select><br><br>
+            
+            <input type="submit" value="Buy Now">
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">plenT &copy; 2024. <a href="#">Cookies Preferences</a></p>
+        </div>
+    </footer>
+</body>
+</html>

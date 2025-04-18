@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- Link to the Theme1 CSS file -->
+    <link rel="stylesheet" href="Theme1.css">
+    <!-- Link to additional style CSS file for contact us page -->
+    <link rel="stylesheet" href="contact_us_style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="/">plenT</a>
+        <ul class="navbar-nav">
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="buy_crypto.html">Buy Crypto</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" href="markets.html">Buy Crypto & Markets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="trade.html">Trade</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact_us.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about_us.html">About Us</a>
+            </li>            
+            <!-- EJS Script -->
+            <% if (userName) { %>
+                <li class="nav-item"><a href="/logout">Logout |</a></li>
+				<li class="nav-item">Welcome <%= userName %></li> <!-- Display user's name -->
+            <% } else { %>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+            <% } %>
+        </ul>
+    </nav>
+
+    <!-- Contact Us content -->
+    <div class="contact-us-container">
+        <h1>Contact Us</h1>
+        <p>If you have any questions, feedback, or inquiries, please feel free to contact us using the form below:</p>
+        <form action="/submit_contact_form" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">plenT &copy; 2024. <a href="#">Cookies Preferences</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+/* Sign Up Page Styles */
+
+/* General styles */
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+h1 {
+    padding-top: 80px;
+    text-align: center;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+input[type="submit"] {
+    background-color: #da7f00;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #865108;
+}

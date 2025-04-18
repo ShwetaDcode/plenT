@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <!-- Link to the Theme1 CSS file -->
+    <link rel="stylesheet" href="Theme1.css">
+    <!-- Link to additional style CSS file -->
+    <link rel="stylesheet" href="signup_style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="/">plenT</a>
+        <ul class="navbar-nav">
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="buy_crypto.html">Buy Crypto</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" href="markets.html">Buy Crypto & Markets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="trade.html">Trade</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact_us.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about_us.html">About Us</a>
+            </li>            
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="signup.html">Sign Up</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <!-- Your sign-up form content here -->
+    <div class="signup-container">
+        <h1>Sign Up</h1>
+        <form action="/sign_up" method="POST">
+            <label for="username">Name</label>
+            <input type="text" class="box" id="name" name="name" placeholder="Name" required /><br>
+            
+            <label for="email">Email</label>
+            <input type="email" class="box" id="email" name="email" placeholder="Email" required /><br>
+
+            <label for="email">Phone Number</label>
+            <input type="text" class="box" id="phno" name="phno" placeholder="Mobile" required /><br>          
+            
+            <label for="password">Password</label>
+            <input type="password" class="box" id="password" name="password" placeholder="Password" required /><br><br>
+            
+            <input type="submit" value="Sign Up" id="submit" />
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">plenT &copy; 2024. <a href="#">Cookies Preferences</a></p>
+        </div>
+    </footer>
+</body>
+</html>

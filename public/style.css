@@ -1,0 +1,280 @@
+/* *{ 
+	margin: 0; 
+	padding: 0; 
+	font-family: 'Roboto Condensed', sans-serif;
+}  */
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+  }
+  
+/* navbar */
+
+.navbar-nav{ 
+	margin-right: 0 !important; 
+	padding-right: 100px; 
+} 
+
+.navbar{ 
+	background-color: #da7f00; 
+	color: white !important; 
+} 
+
+.nav-item a{ 
+	color: white !important; 
+} 
+
+.nav-item{ 
+	padding-left: 2px; 
+} 
+
+.navbar-brand{ 
+	color: white !important; 
+	padding-left: 100px; 
+} 
+
+#navbar button{ 
+	color: white !important; 
+} 
+
+/* banner */
+
+#banner-container{ 
+	background-color: #000000; 
+	color: rgb(255, 255, 255) !important;
+	padding-top: 80px; 
+	padding-bottom: 159px; 
+	
+} 
+
+/* #banner-row img{ 
+	max-width: 70%; 
+	height: auto; 
+	display: block; 
+	padding-left: 30px; 
+}  */
+
+/* #banner-row h3, p{ 
+	padding-left: 20px; 
+	padding-top: 20px; 
+	text-align: center; 
+}  */
+
+/* #banner-row a{ 
+	background-color: white !important; 
+	color: black !important; 
+	border: none; 
+	margin-left: 20px; 
+	margin-top: 20px; 
+	
+} 
+#banner-col{ 
+	padding-left: 20px; 
+}  */
+/* service */
+#service{ 
+	padding-top: 80px; 
+	padding-bottom: 80px; 
+} 
+
+#service h1{ 
+	padding-bottom: 70px; 
+} 
+
+/* about */
+
+#about{ 
+	padding-top: 80px; 
+	padding-bottom: 80px; 
+} 
+
+#about h1{ 
+	padding-bottom: 70px; 
+} 
+
+#about-col ul{ 
+	padding-top: 50px; 
+	padding-left: 50px; 
+} 
+
+#about-col ul li{ 
+	padding-top: 15px; 
+	
+} 
+
+/* product */
+
+#product{ 
+	padding-top: 80px; 
+	padding-bottom: 80px; 
+} 
+
+#product h1{ 
+	padding-bottom: 70px; 
+} 
+
+#product-col2 ul{ 
+	padding-top: 90px; 
+} 
+
+#product-col2 ul li{ 
+	padding-top: 15px; 
+} 
+
+/* social */
+
+#social{ 
+	padding-top: 80px; 
+	padding-bottom: 80px; 
+} 
+
+#social h1{ 
+	padding-bottom: 70px; 
+} 
+
+.social-col a:hover img{ 
+transform: translateY(-10px); 
+} 
+
+#social-row{ 
+	flex-direction: row; 
+} 
+
+/* footer */
+
+.mb-3{ 
+padding-top: 10px; 
+} 
+
+
+/* media */
+@media only screen and (max-width: 987px){ 
+	.navbar-brand{ 
+		padding-left: 0px; 
+	} 
+} 
+
+@media only screen and (max-width: 768px){ 
+	#banner-row img{ 
+		padding-top: 20px; 
+	} 
+
+.social-col{ 
+	width: 33%; 
+} 
+
+}
+.container {
+    width: 100%;
+    overflow: hidden; /* Clearfix to contain floated divs */
+  }
+
+  .box {
+	background-color: none !important; /* Black background */
+    color: #fff; /* White text */
+    padding: 20px;
+    opacity: 0.65; /* Opacity set to 50% */
+    width: 18%;
+    float: left;
+    height: 500px;
+    margin-right: 2%; /* Adjust as needed */
+    box-sizing: border-box; /* Include padding and border in width */
+  }
+
+  /* Clearfix to contain floated divs */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  a{
+    color: #ffffff; /* White color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition */
+  }
+
+  /* Hover effect for anchor tags */
+  a:hover {
+    color: #da7f00; /* Orange color on hover */
+  }
+  .nav-link{
+	color: white; /* White color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition */
+  }
+  .nav-link:hover{
+    color: black !important; /* black color on hover */ 
+  }
+  ul{
+	list-style: none;
+  }
+
+  .footer-content {
+	text-align: center;
+  }
+
+.red-box input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+.red-box input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #da7f00;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+.red-box input[type="submit"]:hover {
+	background-color: #865108 !important; 
+  }
+
+  /*graph video n price fluctuation box*/
+  .c11 {
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+  }
+  
+  .black-box {
+	color: rgb(255, 255, 255);/*white text color */
+	position: absolute;
+	top: 0;
+	right: 50px;
+	width: 400px;
+	height: 70%;
+	background-color: rgba(51, 51, 51, 0.448); /* Transparent black color */
+	border-radius: 20px; /* Rounded corners */
+	padding: 20px;
+  }
+ 
+  .black-box p {
+	margin: 0;
+  }
+
+  #bg-video {
+    position: absolute;
+    top: -64px;
+    right: 0;
+    width: 500px;
+    height: 91.3%;
+    object-fit: cover;
+  }
+  
+  

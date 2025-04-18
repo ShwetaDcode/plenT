@@ -1,0 +1,43 @@
+/* Login Form */
+.login-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #000000; /* Background color set to black */
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white; /* Text color set to white */
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 10px;
+    color: white; /* Text color set to white */
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.login-container input[type="submit"] {
+    width: calc(100% - 20px); /* Adjusting for padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.login-container input[type="submit"] {
+    background-color: #da7f00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: #865108;
+}
+

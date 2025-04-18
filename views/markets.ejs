@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency Prices</title>
+    <!-- Link to the Theme1.css file -->
+    <link rel="stylesheet" href="Theme1.css">
+    <!-- Link to additional style CSS file for markets page -->
+    <link rel="stylesheet" href="markets_style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="/">plenT</a>
+        <ul class="navbar-nav m-auto"> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="/markets">Buy Crypto & Markets</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="/portfolio">Portfolio</a> 
+			</li> 		
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="/contact_us">Contact Us</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="/about_us">About Us</a> 
+			</li> 			
+            <!-- EJS Script -->
+            <% if (userName) { %>
+                <li class="nav-item">
+					<a class="nav-link"
+					href="/logout">Logout |</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link">
+					Welcome <%= userName %></a>
+				</li> <!-- Display user's name -->
+            <% } else { %>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+            <% } %>
+			</ul> 
+    </nav>
+
+
+<!-- Buy Crypto content -->
+<div class="buy-crypto-container center">
+    <h1>Buy Crypto</h1>
+    <form id="buyForm" action="/buy_crypto" method="POST">
+
+        <label for="email">Email</label><br><br>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="cryptocurrency">Select Cryptocurrency</label><br><br>
+        <select id="cryptocurrency" name="cryptocurrency">
+            <!-- Options will be dynamically populated -->
+        </select><br><br>
+        
+        <label for="quantity">Quantity</label><br><br>
+        <input type="number" id="quantity" name="quantity" min="0" required><br><br>
+        
+        <input type="hidden" id="totalPrice" name="totalPrice">
+        
+        
+        <!-- Display multiplied value below the quantity box -->
+        <div id="buy-container-div"></div><br>
+        
+        <input type="submit" value="Buy Now">
+    </form>
+</div>
+
+
+<!-- Sell Crypto content -->
+<div class="sell-crypto-container">
+    <h1>Sell Crypto</h1>
+    <!-- Sell form -->
+    <form id="sellForm" action="/sell_crypto" method="POST">
+        <!-- Form fields -->
+        <!-- Email -->
+        <label for="email_sell">Email</label><br>
+        <input type="email" id="email_sell" name="email_sell" required><br><br>
+        
+        <!-- Cryptocurrency selection -->
+        <label for="cryptocurrency_sell">Select Cryptocurrency</label><br>
+        <select id="cryptocurrency_sell" name="cryptocurrency_sell">
+            <!-- Options will be dynamically populated -->
+        </select><br><br>
+        
+        <!-- Quantity -->
+        <label for="quantity_sell">Quantity</label><br>
+        <input type="number" id="quantity_sell" name="quantity_sell" min="0" required><br><br>
+        
+        <input type="hidden" id="totalPrice_sell" name="totalPrice_sell">
+
+        <!-- Display total price -->
+        <div id="sell-container-div"></div><br>
+        
+        <!-- Submit button -->
+        <input type="submit" value="Sell Now">
+    </form>
+</div>
+
+    <h1>Cryptocurrency Prices</h1>
+    <div id="cryptoData"></div>
+
+    <script>
+
+        let cryptoPrices = {};
+
+        // Function to fetch cryptocurrency names and populate the dropdown
+        function populateCryptoDropdown() {
+            fetch('https://api.coincap.io/v2/assets')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const selectElement = document.getElementById('cryptocurrency');
+
+                    data.data.forEach(crypto => {
+                        const option = document.createElement('option');
+                        option.value = crypto.id; // Use the cryptocurrency id as the value
+                        option.textContent = crypto.name;
+                        selectElement.appendChild(option);
+
+                        // Store cryptocurrency prices
+                        // cryptoPrices[crypto.id] = parseFloat(crypto.priceUsd);
+                    });
+                })
+                .catch(error => {
+                    console.error('There was a problem fetching cryptocurrency data:', error);
+                });
+        }
+
+
+        function calculateValue() {
+            const quantity = parseFloat(document.getElementById('quantity').value);
+            const cryptocurrency = document.getElementById('cryptocurrency').value;
+            const price = cryptoPrices[cryptocurrency];
+            const totalPrice = quantity * price;
+
+            // Update the value of the hidden input field
+            document.getElementById('totalPrice').value = totalPrice.toFixed(6); // Set the value of totalPrice input field
+
+            // Update the displayed total price
+            document.getElementById('buy-container-div').textContent = `Total Price: $${totalPrice.toFixed(6)}`;
+        }
+
+        // Add event listener to the quantity input field to calculate value on input
+        document.getElementById('quantity').addEventListener('input', calculateValue);
+
+
+    // Function to populate the Sell Crypto form's cryptocurrency dropdown
+    function populateSellCryptoDropdown() {
+        fetch('https://api.coincap.io/v2/assets')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const selectElement = document.getElementById('cryptocurrency_sell');
+
+                data.data.forEach(crypto => {
+                    const option = document.createElement('option');
+                    option.value = crypto.id; // Use the cryptocurrency id as the value
+                    option.textContent = crypto.name;
+                    selectElement.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('There was a problem fetching cryptocurrency data:', error);
+            });
+    }
+
+    // Function to calculate the total price for the Sell Crypto form
+    function calculateSellValue() {
+        const quantity_sell = parseFloat(document.getElementById('quantity_sell').value);
+        const cryptocurrency_sell = document.getElementById('cryptocurrency_sell').value;
+        const price_sell = cryptoPrices[cryptocurrency_sell];
+        const totalPrice_sell = quantity_sell * price_sell;
+
+        // Update the value of the hidden input field
+        document.getElementById('totalPrice_sell').value = totalPrice_sell.toFixed(6); // Set the value of totalPrice input field
+
+        // Update the displayed total price for selling
+        document.getElementById('sell-container-div').textContent = `Total Price: $${totalPrice_sell.toFixed(6)}`;
+    }
+
+    // Add event listener to the quantity input field in Sell Crypto form to calculate total price on input
+    document.getElementById('quantity_sell').addEventListener('input', calculateSellValue);
+
+
+
+        function getCryptoData() {
+            // Fetch cryptocurrency data from CoinCap API
+            fetch('https://api.coincap.io/v2/assets')
+                .then(response => {
+                    // Check if response is successful
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Process the cryptocurrency data
+                    displayCryptoData(data.data);
+
+                    // Send cryptocurrency data to server to save
+                    saveCryptoData(data.data);                    
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('There was a problem fetching cryptocurrency data:', error);
+                });
+        }
+
+
+        function displayCryptoData(data) {
+                const cryptoDataDiv = document.getElementById('cryptoData');
+                cryptoDataDiv.innerHTML = ''; // Clear previous data
+    
+                data.forEach(crypto => {
+                    const name = crypto.name;
+                    const price = parseFloat(crypto.priceUsd).toFixed(6); // Displaying price with 6 decimal places
+                    const coinid = crypto.rank; // Assigning rank to coinid
+                    const changePercent24Hr = parseFloat(crypto.changePercent24Hr); // Change in percent in last 24 hours
+    
+                    const paragraph = document.createElement('p');
+                    paragraph.textContent = `${coinid}. ${name}: $${price} - `;
+    
+                    const aiAdvice = document.createElement('span');
+                    aiAdvice.textContent = changePercent24Hr > 0 ? 'AI Assistance: Can Buy' : 'AI Assistance: Should Avoid Buying';
+                    aiAdvice.style.color = changePercent24Hr > 0 ? 'green' : 'red';
+    
+                    paragraph.appendChild(aiAdvice);
+                    cryptoDataDiv.appendChild(paragraph);
+    
+                    cryptoPrices[crypto.id] = parseFloat(crypto.priceUsd);
+                });
+            }
+
+        // Function to send cryptocurrency data to server to save
+        function saveCryptoData(data) {
+            fetch('/save_coins', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ coinsData: data }) // Send cryptocurrency data as JSON string
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                console.log('Cryptocurrency data sent to server successfully');
+            })
+            .catch(error => {
+                console.error('There was a problem sending cryptocurrency data to server:', error);
+            });
+        }        
+
+        // Call the function to fetch cryptocurrency data initially
+        getCryptoData();
+
+        // Periodically fetch cryptocurrency data every 0.5 seconds
+        // setInterval(getCryptoData, 15000);
+
+        // Call the function to populate the cryptocurrency dropdown once when the page is loaded
+        populateCryptoDropdown();      
+
+        // Call the function to populate the Sell Crypto form's cryptocurrency dropdown once when the page is loaded
+        populateSellCryptoDropdown();        
+
+        setInterval(getCryptoData, 15000);
+
+        
+
+    // Event listener for buy form submission
+    document.addEventListener("DOMContentLoaded", function() {
+        const buyForm = document.getElementById('buyForm');
+        buyForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const cryptocurrency = document.getElementById('cryptocurrency').value;
+            const quantity = parseFloat(document.getElementById('quantity').value);
+            const totalPrice = parseFloat(document.getElementById('totalPrice').value);
+
+            const formData = {
+                email: email,
+                cryptocurrency: cryptocurrency,
+                quantity: quantity,
+                totalPrice: totalPrice
+            };
+
+            // Send formData as JSON to backend
+            fetch('/buy_crypto', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === "Transaction successful") {
+                    alert(data.message); // Show success message
+                    window.location.href = "/markets"; // Redirect to markets.html
+                } else {
+                    alert("Transaction failed. Please try again."); // Show failure message
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("An error occurred. Please try again later."); // Show error message
+            });
+        });
+    });        
+
+
+    
+// Event listener for sell form submission
+document.addEventListener("DOMContentLoaded", function() {
+    const sellForm = document.getElementById('sellForm');
+    sellForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const email_sell = document.getElementById('email_sell').value;
+        const cryptocurrency_sell = document.getElementById('cryptocurrency_sell').value;
+        const quantity_sell = parseFloat(document.getElementById('quantity_sell').value);
+        const totalPrice_sell = parseFloat(document.getElementById('totalPrice_sell').value);
+
+        // Print entity types in console
+        console.log("Entity type of email_sell:", typeof email_sell);
+        console.log("Entity type of cryptocurrency_sell:", typeof cryptocurrency_sell);
+        console.log("Entity type of quantity_sell:", typeof quantity_sell);  
+        console.log("Entity type of totalPrice_sell:", typeof totalPrice_sell);        
+
+        const formData = {
+            email_sell: email_sell,
+            cryptocurrency_sell: cryptocurrency_sell,
+            quantity_sell: quantity_sell,
+            totalPrice_sell: totalPrice_sell
+        };
+
+        // Send formData as JSON to backend
+        fetch('/sell_crypto', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === "Crypto Sold Successfully") {
+                alert(data.message); // Show success message
+                window.location.href = "/markets"; // Redirect to markets.html
+            } else {
+                alert("Transaction failed. Please try again."); // Show failure message
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("An error occurred. Please try again later."); // Show error message
+        });
+    });
+});        
+
+    
+
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            <pre><p class="copyright">plenT&copy; 2024. <a href="#">Cookies Preferences</a></p></pre>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<!-- Required meta tags -->
+	<meta charset="utf-8" /> 
+	<meta name="viewport"
+		content="width=device-width, 
+				initial-scale=1" /> 
+
+	<!-- Bootstrap CSS -->
+	<link
+	href= "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+	rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+	crossorigin="anonymous"
+	/> 
+	<link rel="stylesheet"
+		href="style.css" /> 
+	<link rel="preconnect"
+		href="https://fonts.gstatic.com" /> 
+	<link
+	href= 
+"https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
+	rel="stylesheet"
+	/> 
+	<title>plenT</title> 
+</head> 
+<body> 
+	<video autoplay muted loop id="video-background">
+		<source src="C:\Users\91824\Desktop\pexels-rodnae-productions-8370140 (Original).mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	  </video>
+	<section id="navbar"> 
+	<nav class="navbar navbar-expand-lg navbar-light"> 
+		<div class="container-fluid"> 
+		<a class="navbar-brand" href="#">plenT</a> 
+		<button
+			class="navbar-toggler"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		> 
+			<span class="navbar-toggler-icon"></span> 
+		</button> 
+		<div class="collapse navbar-collapse"
+			id="navbarSupportedContent"> 
+			<ul class="navbar-nav m-auto"> 
+			<li class="nav-item"> 
+				<a class="nav-link active"
+				aria-current="page"
+				href="buy_crypto.html">Buy Crypto</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="markets.html">Markets</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="trade.html">Trade</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="login.html">Log In</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="signup.html">Sign Up</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="contact_us.html">Contact Us</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="about_us.html">About Us</a> 
+			</li> 
+            <!-- Display user's name and logout option if user is logged in -->
+            <li id="user-section" class="nav-item" style="display: none;">
+                <span id="user-name"></span>
+                <a id="logout-btn" class="nav-link" href="#">Logout</a>
+            </li>			
+			</ul> 
+		</div> 
+		</div> 
+	</nav> 
+	</section> 
+
+	<!-- banner -->
+	<section id="banner"> 
+	<div class="container-fluid" id="banner-container"> 
+		<div class="row" id="banner-row"> 
+		<div class="col-md-6" id="banner-col">
+			<div class="red-box"> 
+						  <h1 style="font-size: 3em;">More than 10,00,000 Users TRUST US !!</h1>
+							
+									<input type="text" name="phone_or_email" placeholder="Email/Phone Number">
+										<input type="submit" value="Get Started">
+										<p style="color:white; font-family: Arial; text-align:left;">Sign Up now and get upto 100 USDT in rewards.</p>
+									</div>
+								  <div class="c11">
+						<video autoplay muted loop id="bg-video">
+						  <source src="C:\Users\91824\Desktop\pexels-tima-miroshnichenko-7579576 (2160p).mp4" type="video/mp4">
+						  Your browser does not support the video tag.
+						</video>
+						
+					  <div class="black-box">
+						<div id="btc-price" class="price" style="font-size:1.2em;"></div>
+						<hr>
+        				<div id="eth-price" class="price" style="font-size:1.2em;"></div>
+						<hr>
+       					<div id="ltc-price" class="price" style="font-size:1.2em;"></div>
+						<hr>
+        				<div id="xrp-price" class="price" style="font-size:1.2em;"></div>
+						<hr>
+        				<div id="bnb-price" class="price" style="font-size:1.2em;"></div>
+						<hr>
+					  </div>
+					</div>
+				</div>
+			</div>
+			</div>
+	</section> 
+	<script src="trending.js"></script>
+	<!-- services -->
+	<section id="service"> 
+	<h1 class="text-center">SERVICES</h1> 
+	<div class="container-fluid" id="service-container"> 
+		<div class="row" id="banner-row"> 
+		<div class="col-md-4" id="service-col1"> 
+			<img
+			src="images/gfg.png"
+			class="img-fluid rounded mx-auto d-block"
+			alt="..."
+			/> 
+			<h3>Website Design</h3> 
+			
+<p> 
+			User Experience Design. 
+			Website Content Strategy. 
+			Cross Browser 
+			and Platform Testing. 
+			</p> 
+
+		</div> 
+		<div class="col-md-4" id="service-col2"> 
+			<img
+			src="images/gfg.png"
+			class="img-fluid rounded mx-auto d-block"
+			alt="..."
+			/> 
+			<h3>Bulk SMS</h3> 
+			
+<p> 
+			1.Toll Free Number 
+			2. IVR 
+			3. Virtual Number 
+			4. Political or any 
+			Voice Broadcasting 
+			</p> 
+
+		</div> 
+		<div class="col-md-4" id="service-col3"> 
+			<img
+			src="images/gfg.png"
+			class="img-fluid rounded mx-auto d-block"
+			alt="..."
+			/> 
+			<h3>Payment Gateways</h3> 
+			
+<p> 
+			PayU India is the flagship company of 
+			Naspers group which is a $25 
+			Billion internet and media conglomerate 
+			listed on London and 
+			Johannesburg stock exchanges respectively. 
+			</p> 
+
+		</div> 
+		</div> 
+	</div> 
+	</section> 
+	<hr /> 
+
+	<!-- about Us -->
+	<section id="about"> 
+	<h1 class="text-center">About Us</h1> 
+	<div class="container-fluid" id="about-container"> 
+		<div class="row" id="banner-row"> 
+		<div class="col-md-6" id="about-col"> 
+			<h3>Why Us</h3> 
+			<ul> 
+			<li> 
+				Probuz is all about Delivering High 
+				Quality web design and development 
+				services, Cost effective and 
+				reliable solutions. 
+			</li> 
+			<li>SCHOOL/COLLEGE MANAGEMENT SOFTWARE 
+				(CAMPUS PRO)</li> 
+			<li> 
+				Let us take care of your Business needs. 
+				Customer Productivity is our Priority. 
+			</li> 
+			<li>Our expertise in Business includes</li> 
+			</ul> 
+		</div> 
+		<div class="col-md-6" id="banner-col2"> 
+			<img
+			class="img-responsive rounded mx-auto d-block"
+			src="images/gfg.png"
+			alt=""
+			/> 
+		</div> 
+		</div> 
+	</div> 
+	</section> 
+	<hr /> 
+	<!-- product -->
+
+	<section id="product"> 
+	<h1 class="text-center">Our Products</h1> 
+	<div class="container-fluid" id="product-container"> 
+		<div class="row" id="banner-row"> 
+		<div class="col-md-6" id="about-col"> 
+			<img
+			class="img-responsive rounded mx-auto d-block"
+			src="images/gfg.png"
+			alt=""
+			/> 
+		</div> 
+		<div class="col-md-6" id="product-col2"> 
+			<h3>Product List</h3> 
+
+			<ul> 
+			<li>CLINIC MANAGMENT SYSTEM</li> 
+			<li>SCHOOL/COLLEGE MANAGEMENT 
+				SOFTWARE (CAMPUS PRO)</li> 
+			<li>SERVICE MANAGEMENT SOFTWARE</li> 
+			<li>E-COMMERCE WEBSITE</li> 
+			</ul> 
+		</div> 
+		</div> 
+	</div> 
+	</section> 
+	<hr /> 
+	<!-- social -->
+	<section id="social"> 
+	<h1 class="text-center">Get In Touch</h1> 
+	<div class="d-grid gap-2 d-md-flex justify-content-center"> 
+		<div class="row align-items-center" id="social-row"> 
+		<div class="col-md-4 social-col"> 
+			<a href=""
+			><img
+				class="img-responsive rounded mx-auto d-block"
+				src="images/gfg.png"
+				alt=""
+			/></a> 
+		</div> 
+		<div class="col-md-4 social-col"> 
+			<a href=""
+			><img
+				class="img-responsive rounded mx-auto d-block"
+				src="images/icons8-instagram-64.png"
+				alt=""
+			/></a> 
+		</div> 
+		<div class="col-md-4 social-col"> 
+			<a href=""
+			><img
+				class="img-responsive rounded mx-auto d-block"
+				src="images/icons8-twitter-64.png"
+				alt=""
+			/></a> 
+		</div> 
+		</div> 
+	</div> 
+	</section> 
+
+	<!-- footer -->
+	<section id="footer"> 
+		<section id="banner">
+			<div class="container-fluid" id="banner-container">  
+			<form>
+<div class="container clearfix">
+  <div class="box">Community
+	<ul>
+		<li><a href="#"><img src="" alt="facebook"></a></li>
+		<li><a href="#"><img src="" alt="instagram"></a></li>
+		<li><a href="#"><img src="" alt="telegram"></a></li>
+		<li><a href="#"><img src="" alt="twitter"></a></li>
+		<li><a href="#"><img src="" alt="youtube"></a></li>
+</ul>
+  </div>
+  <div class="box">About Us
+	<ul>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Business Contacts</a></li>
+		<li><a href="#">Careers</a></li>
+		<li><a href="#">Announcements</a></li>
+		<li><a href="#">News</a></li>
+		<li><a href="#">Press</a></li>
+		<li><a href="#">Legal</a></li>
+		<li><a href="#">Terms</a></li>
+		<li><a href="#">Privacy</a></li>
+		<li><a href="#">Building Trust</a></li>
+		<li><a href="#">Blog</a></li>
+		<li><a href="#">Community</a></li>
+		<li><a href="#">Sitemap</a></li>
+		<li><a href="#">Risk Warning</a></li>
+		<li><a href="#">Notices</a></li>
+		<li><a href="#">Downloads</a></li>
+		<li><a href="#">Deskstop Application</a></li>
+</ul>
+  </div>
+  <div class="box">Products
+	<ul>
+		<li><a href="#">Exchange</a></li>
+		<li><a href="#">Buy Cypto</a></li>
+		<li><a href="#">Leverage Tokens</a></li>
+		<li><a href="#">Academy</a></li>
+		<li><a href="#">Live</a></li>
+		<li><a href="#">Tax</a></li>
+		<li><a href="#">Gift Card</a></li>
+		<li><a href="#">Launchpad & Launchpool</a></li>
+		<li><a href="#">Auto-Invest</a></li>
+		<li><a href="#">ETH Staking</a></li>
+		<li><a href="#">NFT</a></li>
+		<li><a href="#">BNB</a></li>
+		<li><a href="#">BABT</a></li>
+		<li><a href="#">Research</a></li>
+		<li><a href="#">Charity</a></li>
+</ul>
+  </div>
+  <div class="box">Business & Learning
+	<ul>
+		<li><a href="#">P2P Merchant Application</a></li>
+		<li><a href="#">P2Pro Merchant Application</a></li>
+		<li><a href="#">Listing Application</a></li>
+		<li><a href="#">Institutional & VIP Services</a></li>
+		<li><a href="#">Labs</a></li>
+		<li><a href="#">Learn & Earn</a></li>
+		<li><a href="#">Browse Crypto Prices</a></li>
+		<li><a href="#">Bitcoin Price</a></li>
+		<li><a href="#">Ethereum Price</a></li>
+		<li><a href="#">Browse Crypto Price Predictions</a></li>
+		<li><a href="#">Bitcoin Price Prediction</a></li>
+		<li><a href="#">Ethereum Price Prediction</a></li>
+		<li><a href="#">Buy Bitcoin</a></li>
+		<li><a href="#">Buy BNB</a></li>
+		<li><a href="#">Buy Dogecoin</a></li>
+		<li><a href="#">Buy Ethereum</a></li>
+		<li><a href="#">Buy Tradable Altcoins</a></li>
+</ul>
+  </div>
+  <div class="box">Services & Support
+	<ul>
+		<li><a href="#">Affiliate</a></li>
+		<li><a href="#">Referral</a></li>
+		<li><a href="#">OTC Trading</a></li>
+		<li><a href="#">Historical Market Data</a></li>
+		<li><a href="#">Proof of Reserves</a></li>
+		<li><a href="#">24/7 Chat Support</a></li>
+		<li><a href="#">Support Center</a></li>
+		<li><a href="#">Product Feedback & Suggestions</a></li>
+		<li><a href="#">Fees</a></li>
+		<li><a href="#">APIs</a></li>
+		<li><a href="#">plenT Verify</a></li>
+		<li><a href="#">Trading Rules</a></li>
+		<li><a href="#">plenT Airdrop Portal</a></li>
+		<li><a href="#">Law Enforcement Requests</a></li>
+</ul>
+  </div>
+</div>
+			</form> 
+			<hr>
+			<div class="footer-content">
+				<pre><p class="copyright">plenT&copy; 2024.	            <a href="#">Cookies Preferences</a></p></pre>
+			</div>
+		</section>
+	</section> 
+
+	<!-- Optional JavaScript; choose one of the two! -->
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+	src= 
+"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+	integrity= 
+"sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+	crossorigin="anonymous"
+	>
+</script> 
+</body> 
+</html> 

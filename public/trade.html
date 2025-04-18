@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade</title>
+    <!-- Link to the Theme1 CSS file -->
+    <link rel="stylesheet" href="Theme1.css">
+    <!-- Link to additional style CSS file for trade page -->
+    <link rel="stylesheet" href="trade_style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="/">plenT</a>
+        <ul class="navbar-nav">
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="buy_crypto.html">Buy Crypto</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" href="markets.html">Buy Crypto & Markets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="trade.html">Trade</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact_us.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about_us.html">About Us</a>
+            </li>            
+            <!-- EJS Script -->
+            <% if (userName) { %>
+                <li class="nav-item"><a href="/logout">Logout |</a></li>
+				<li class="nav-item">Welcome <%= userName %></li> <!-- Display user's name -->
+            <% } else { %>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+            <% } %>
+        </ul>
+    </nav>
+
+    <!-- Trade content -->
+    <div class="trade-container">
+        <h1>Trade</h1>
+        <form id="tradeForm">
+            <label for="crypto">Select Cryptocurrency:</label>
+            <select id="crypto" name="crypto">
+                <option value="bitcoin">Bitcoin</option>
+                <option value="ethereum">Ethereum</option>
+                <!-- Add more cryptocurrency options as needed -->
+            </select><br><br>
+            
+            <label for="amount">Enter Amount:</label>
+            <input type="text" id="amount" name="amount" required><br><br>
+
+            <label for="price">Enter Price:</label>
+            <input type="text" id="price" name="price" required><br><br>
+
+            <input type="submit" value="Submit Trade">
+        </form>
+
+        <!-- Display trade result -->
+        <div id="tradeResult"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">Project Name &copy; 2024. <a href="#">Cookies Preferences</a></p>
+        </div>
+    </footer>
+
+    <!-- Script to handle trade submission -->
+    <script>
+        document.getElementById('tradeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Retrieve form data
+            const crypto = document.getElementById('crypto').value;
+            const amount = document.getElementById('amount').value;
+            const price = document.getElementById('price').value;
+            
+            // Simulate trade submission (replace with actual trade logic)
+            // For demonstration purposes, just display the trade result
+            const tradeResult = `Trade submitted for ${amount} ${crypto} at $${price} each.`;
+            document.getElementById('tradeResult').innerText = tradeResult;
+        });
+    </script>
+</body>
+</html>

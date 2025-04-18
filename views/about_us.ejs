@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- Link to the Theme1 CSS file -->
+    <link rel="stylesheet" href="Theme1.css">
+    <!-- Link to additional style CSS file for about us page -->
+    <link rel="stylesheet" href="about_us_style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="/">plenT</a>
+        <ul class="navbar-nav m-auto"> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="/markets">Buy Crypto & Markets</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="/portfolio">Portfolio</a> 
+			</li> 		
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="/contact_us">Contact Us</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link"
+				href="/about_us">About Us</a> 
+			</li> 			
+            <!-- EJS Script -->
+            <% if (userName) { %>
+                <li class="nav-item">
+					<a class="nav-link"
+					href="/logout">Logout |</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link">
+					Welcome <%= userName %></a>
+				</li> <!-- Display user's name -->
+            <% } else { %>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+            <% } %>
+			</ul> 
+    </nav>
+
+    <!-- About Us content -->
+    <div class="about-us-container">
+        <h1>About Us</h1>
+        <p>Welcome to plenT, your ultimate destination for cryptocurrency trading and investment. At plenT, we aim to provide a seamless and secure platform for users to buy, sell, and trade various cryptocurrencies.</p>
+        <p>Our mission is to empower individuals to participate in the exciting world of cryptocurrencies by offering intuitive tools, comprehensive market analysis, and exceptional customer support.</p>
+        <p>plenT was founded by a team of cryptocurrency enthusiasts and experts who recognized the need for a user-friendly and reliable platform in the rapidly evolving crypto market. With our dedication to innovation and customer satisfaction, we strive to become a trusted leader in the cryptocurrency industry.</p>
+        <p>Whether you're a seasoned trader or just getting started with cryptocurrencies, plenT is here to support you on your journey to financial freedom. Join us today and experience the future of finance with plenT!</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">plenT &copy; 2024. <a href="#">Cookies Preferences</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Link to the Theme1 CSS file -->
+    <link rel="stylesheet" href="Theme1.css">    
+    <!-- Link to additional style CSS file for contact us page -->    
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="/">plenT</a>
+        <ul class="navbar-nav m-auto"> 
+            <li class="nav-item"> 
+                <a class="nav-link" href="/markets">Buy Crypto & Markets</a> 
+            </li> 
+            <li class="nav-item"> 
+                <a class="nav-link" href="/portfolio">Portfolio</a> 
+            </li>       
+            <li class="nav-item"> 
+                <a class="nav-link" href="/contact_us">Contact Us</a> 
+            </li> 
+            <li class="nav-item"> 
+                <a class="nav-link" href="/about_us">About Us</a> 
+            </li>             
+            <!-- EJS Script -->
+            <% if (userName) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout |</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Welcome <%= userName %></a>
+                </li> <!-- Display user's name -->
+            <% } else { %>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+            <% } %>
+        </ul> 
+    </nav>
+
+    <div class="container">
+        <h1>Portfolio</h1>
+        <form id="emailForm">
+            <label for="email">Enter Email:</label><br>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+        <h2>Crypto Available (In USD)</h2>
+        <ul id="cryptoList"></ul> <!-- List to display cryptocurrency data -->
+    </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const emailForm = document.getElementById('emailForm');
+    
+        try {
+            emailForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+    
+                const email = document.getElementById('email').value;
+    
+                // Send the email data to the server
+                sendDataToServer(email);
+            });
+        } catch (error) {
+            console.error('Error setting up event listener:', error);
+        }
+    });
+    
+    function sendDataToServer(email) {
+        console.log("Email sent to server:", email); // Print email sent to server
+    
+        // Send email data to the server
+        fetch('/submit_portfolio_email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: email })
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to submit email');
+            }
+        })
+        .then(data => {
+            console.log('Response data from server:', data); // Print response data from server
+    
+            // Handle response data
+            if (data.message === "No Crypto Available") {
+                // Display message if no cryptocurrency data available
+                const cryptoList = document.getElementById('cryptoList');
+                cryptoList.innerHTML = '<li>No Crypto Available</li>';
+            } else if (data.data.length === 0) {
+                document.getElementById('noCryptoMsg').textContent = "No cryptocurrency data available for the provided email.";
+            } else {
+                // Call function to display cryptocurrency data
+                displayCryptoData(data.data);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle errors
+        });
+    }
+    
+    function displayCryptoData(data) {
+        console.log("Displaying crypto data:", data);
+        const cryptoList = document.getElementById('cryptoList');
+        console.log("Crypto list element:", cryptoList);
+
+        // Clear previous data
+        cryptoList.innerHTML = '';
+
+        data.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${item.coinName}: ${item.totalp}`;
+            cryptoList.appendChild(listItem);
+        });
+    }
+</script>
+
+</body>
+</html>
